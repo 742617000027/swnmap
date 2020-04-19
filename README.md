@@ -46,7 +46,7 @@ paste it after `https://swnmap.com/?map=`.
 ### Missing sheets error
 If you see anything like the image below, something went wrong (I know it's not the prettiest of error messages, working on it).
 
-![Error](https://i.imgur.com/nB7zaXa.png)
+> ![Error](https://i.imgur.com/nB7zaXa.png)
 
 If all four of the essential sheets (**FactionTracker**, **AssetTracker**, **PlanetMap** and **SectorObjects**) are listed
 as missing, most likely there's a problem with the URL you pasted after `https://swnmap.com/?map=`. If only some are listed
