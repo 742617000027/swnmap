@@ -1,0 +1,589 @@
+body {
+    background-image: url("../img/background_img.png");
+    background-size: 20% auto;
+    overflow: hidden;
+}
+
+mark {
+    color: #000;
+    background-color: #3ee1f4;
+}
+
+#intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'D-DIN', Arial, Helvetica, sans-serif;
+    font-size: 72px;
+    color: #fff;
+}
+
+#home {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    left: calc(50% - 15px);
+    background-color: rgba(255, 55, 99, 0);
+    border-radius: 21px;
+    opacity: 0.1;
+    transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#home img {
+    position: absolute;
+    width: 34px;
+    top: -2px;
+    left: -2px;
+    height: auto;
+    user-select: none;
+}
+
+#home:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: rotate(60deg);
+    background-color: rgba(255, 55, 99, 1);
+}
+
+#faction-overview {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+    color: #fff;
+    font-family: 'D-DIN', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    /*border: 1px solid #f00;*/
+}
+
+.faction-container {
+    position: relative;
+    height: 30px;
+    margin: 10px;
+}
+
+.faction-name {
+    display: inline-block;
+    text-align: right;
+    height: 30px;
+    vertical-align: middle;
+    transition: background-color 0.2s ease-in-out;
+    padding: 5px;
+    user-select: none;
+}
+
+.faction-name:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.faction-color {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    vertical-align: middle;
+    border: 5px solid #222;
+    box-sizing: border-box;
+}
+
+#faction-info {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 10px;
+    font-family: 'D-DIN', Helvetica, Arial, sans-serif;
+    color: #fff;
+    background-color: #141414;
+    box-shadow: 10px 10px 5px 0 rgba(10, 10, 10, 0.3);
+    transition: opacity 0.2s ease-in-out;
+}
+
+#faction-info-header-left {
+    display: inline-block;
+    width: 300px;
+    height: 32px;
+    vertical-align: bottom;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 32px;
+}
+
+#faction-info-header-right {
+    display: inline-block;
+    width: 190px;
+    height: 32px;
+    vertical-align: bottom;
+    text-align: right;
+    font-size: 12px;
+    line-height: 40px;
+}
+
+.faction-stat {
+    position: relative;
+    display: inline-block;
+    height: 70px;
+    vertical-align: bottom;
+    padding-bottom: 2px;
+    text-align: center;
+    border: 1px solid #141414;
+}
+
+#faction-info-stat-force {
+    width: 70px;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 90px;
+}
+
+#faction-info-stat-cunning {
+    width: 70px;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 90px;
+}
+
+#faction-info-stat-wealth {
+    width: 70px;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 90px;
+}
+
+#faction-info-stat-hp {
+    width: 70px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 112px;
+}
+
+#faction-info-stat-income {
+    width: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 112px;
+}
+
+#faction-info-stat-balance {
+    width: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 112px;
+}
+
+#faction-info-stat-xp {
+    width: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 112px;
+}
+
+.faction-label {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    vertical-align: bottom;
+    padding-bottom: 2px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #141414;
+}
+
+#faction-info-stat-force-label {
+    width: 70px;
+}
+
+#faction-info-stat-cunning-label {
+    width: 70px;
+}
+
+#faction-info-stat-wealth-label {
+    width: 70px;
+}
+
+#faction-info-stat-hp-label {
+    width: 70px;
+}
+
+#faction-info-stat-income-label {
+    width: 60px;
+}
+
+#faction-info-stat-balance-label {
+    width: 60px;
+}
+
+#faction-info-stat-xp-label {
+    width: 60px;
+}
+
+#faction-info-tag-name {
+    position: relative;
+    width: 500px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 70px;
+}
+
+#faction-info-tag-desc {
+    position: relative;
+    width: 500px;
+    font-size: 14px;
+}
+
+#faction-info-goal-name {
+    position: relative;
+    width: 500px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 70px;
+}
+
+#faction-info-goal-desc {
+    position: relative;
+    width: 500px;
+    font-size: 14px;
+}
+
+#viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hex {
+    transition: fill 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.hex-text {
+    user-select: none;
+}
+
+.system-name {
+    user-select: none;
+}
+
+.planet-name {
+    user-select: none;
+}
+
+.asset {
+    transition: x 0.2s ease-in-out, y 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.highlight {
+    transition: opacity 0.2s ease-in-out, x 0.2s ease-in-out, y 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.highlight:hover {
+    opacity: 0.3;
+}
+
+#tooltip {
+    display: none;
+    position: absolute;
+    width: 420px;
+    height: auto;
+    padding: 10px;
+    font-family: 'D-DIN', Helvetica, Arial, sans-serif;
+    color: #fff;
+    background-color: #141414;
+    box-shadow: 10px 10px 5px 0 rgba(10, 10, 10, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    user-select: none;
+}
+
+#tooltip-header-left {
+    position: relative;
+    display: inline-block;
+    width: 265px;
+    padding-bottom: 2px;
+    font-size: 12px;
+}
+
+#tooltip-header-right {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    padding-bottom: 2px;
+    font-size: 12px;
+    text-align: right;
+}
+
+#tooltip-name {
+    position: relative;
+    width: 420px;
+    left: 0;
+    padding-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border-top: 1px dotted #444;
+}
+
+#tooltip-planet-info {
+    position: relative;
+    width: 420px;
+    left: 0;
+    padding-top: 10px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.planet-icon {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#tooltip-planet-info-tl-icon {
+    background-image: url("../img/icons/tl.png");
+    background-size: 16px;
+}
+
+#tooltip-planet-info-pop-icon {
+    background-image: url("../img/icons/pop.png");
+    background-size: 18px;
+}
+
+#tooltip-planet-info-atmo-icon {
+    background-image: url("../img/icons/atmo.png");
+    background-size: 20px;
+}
+
+#tooltip-planet-info-temp-icon {
+    background-image: url("../img/icons/temp.png");
+    background-size: 22px;
+}
+
+#tooltip-planet-info-bio-icon {
+    background-image: url("../img/icons/bio.png");
+    background-size: 22px;
+}
+
+#tooltip-planet-info-tags-icon {
+    background-image: url("../img/icons/tags.png");
+    background-size: 22px;
+}
+
+.planet-stat {
+    position: relative;
+    display: inline-block;
+    width: 370px;
+    height: 20px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+
+#tooltip-system-objects {
+    position: relative;
+    width: 420px;
+    margin: 0;
+    overflow-x: hidden !important;
+}
+
+.Treant > .node {
+}
+
+.Treant > p {
+    font-family: 'D-DIN', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.node-name {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.node-desc {
+    margin: 0;
+    padding: 0;
+}
+
+.object-node {
+    padding: 10px;
+    color: #fff;
+    background-color: #222;
+    font-family: 'D-DIN', Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    border-radius: 2px;
+}
+
+#tooltip-asset-info {
+    position: relative;
+    width: 420px;
+    left: 0;
+    padding-top: 10px;
+}
+
+.asset-stat {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    padding-bottom: 2px;
+    font-size: 18px;
+    text-align: center;
+}
+
+#tooltip-asset-info-hp {
+    width: 70px;
+}
+
+#tooltip-asset-info-cost {
+    width: 70px;
+}
+
+#tooltip-asset-info-tl {
+    width: 70px;
+}
+
+#tooltip-asset-info-atk {
+    width: 95px;
+}
+
+#tooltip-asset-info-def {
+    width: 95px;
+}
+
+.asset-icon {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#tooltip-asset-info-hp-icon {
+    width: 70px;
+    background-image: url("../img/icons/hp.png");
+    background-size: 16px;
+}
+
+#tooltip-asset-info-cost-icon {
+    width: 70px;
+    background-image: url("../img/icons/cost.png");
+    background-size: 14px;
+}
+
+#tooltip-asset-info-tl-icon {
+    width: 70px;
+    background-image: url("../img/icons/tl.png");
+    background-size: 16px;
+}
+
+#tooltip-asset-info-atk-icon {
+    width: 95px;
+    background-image: url("../img/icons/atk.png");
+    background-size: 16px;
+}
+
+#tooltip-asset-info-def-icon {
+    width: 95px;
+    background-image: url("../img/icons/def.png");
+    background-size: 14px;
+}
+
+#tooltip-asset-info-stealth {
+    display: none;
+    position: relative;
+    width: 420px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+#tooltip-asset-info-stealth-head {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#tooltip-asset-info-stealth-desc {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 340px;
+}
+
+#tooltip-asset-info-special {
+    display: none;
+    position: relative;
+    width: 420px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+#tooltip-asset-info-special-head {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#tooltip-asset-info-special-desc {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 340px;
+}
+
+#tooltip-asset-info-status {
+    display: none;
+    position: relative;
+    width: 420px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+#tooltip-asset-info-status-head {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#tooltip-asset-info-status-desc {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 340px;
+}
+
+#tooltip-asset-info-perm {
+    display: none;
+    position: relative;
+    width: 420px;
+    padding-top: 20px;
+    font-size: 14px;
+    font-style: italic;
+}

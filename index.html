@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stars Without Number</title>
+    <link href="scripts/style.css" rel="stylesheet" type="text/css">
+    <link href="scripts/Treant.css" rel="stylesheet" type="text/css">
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="scripts/Treant.js"></script>
+    <script src="scripts/raphael.js"></script>
+    <script src="scripts/classes.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/index.js"></script>
+</head>
+<body>
+<div id="viewer"></div>
+<div id="tooltip">
+    <div id="tooltip-header-left">The PRISM Network</div>
+    <div id="tooltip-header-right">Logistics Facility, Cunning 4</div>
+    <div id="tooltip-name">Party Machine</div>
+    <div id="tooltip-system-info">
+
+
+    </div>
+    <div id="tooltip-planet-info">
+        <div class="planet-icon" id="tooltip-planet-info-tl-icon"></div>
+        <div class="planet-stat" id="tooltip-planet-info-tl"></div>
+
+        <div class="planet-icon" id="tooltip-planet-info-pop-icon"></div>
+        <div class="planet-stat" id="tooltip-planet-info-pop"></div>
+
+        <div class="planet-icon" id="tooltip-planet-info-atmo-icon"></div>
+        <div class="planet-stat" id="tooltip-planet-info-atmo"></div>
+
+        <div class="planet-icon" id="tooltip-planet-info-temp-icon"></div>
+        <div class="planet-stat" id="tooltip-planet-info-temp"></div>
+
+        <div class="planet-icon" id="tooltip-planet-info-bio-icon"></div>
+        <div class="planet-stat" id="tooltip-planet-info-bio"></div>
+
+        <div class="planet-icon" id="tooltip-planet-info-tags-icon"></div>
+        <div class="planet-stat" id="tooltip-planet-info-tags"></div>
+    </div>
+    <div id="tooltip-asset-info">
+        <div class="asset-stat" id="tooltip-asset-info-hp"></div>
+        <div class="asset-stat" id="tooltip-asset-info-cost"></div>
+        <div class="asset-stat" id="tooltip-asset-info-tl"></div>
+        <div class="asset-stat" id="tooltip-asset-info-atk"></div>
+        <div class="asset-stat" id="tooltip-asset-info-def"></div>
+        <div class="asset-icon" id="tooltip-asset-info-hp-icon"></div>
+        <div class="asset-icon" id="tooltip-asset-info-cost-icon"></div>
+        <div class="asset-icon" id="tooltip-asset-info-tl-icon"></div>
+        <div class="asset-icon" id="tooltip-asset-info-atk-icon"></div>
+        <div class="asset-icon" id="tooltip-asset-info-def-icon"></div>
+
+        <div id="tooltip-asset-info-stealth">
+            <div id="tooltip-asset-info-stealth-head">
+                Stealth
+            </div>
+            <div id="tooltip-asset-info-stealth-desc">
+                An asset that has been Stealthed cannot be detected or attacked by other factions. If the unit normally
+                requires the permission of a planetary government to be moved onto a planet, that permission may be
+                foregone. An asset loses its Stealth if it is used to attack or defend.
+            </div>
+        </div>
+
+        <div id="tooltip-asset-info-special">
+            <div id="tooltip-asset-info-special-head">
+                Special
+            </div>
+            <div id="tooltip-asset-info-special-desc"></div>
+        </div>
+
+        <div id="tooltip-asset-info-status">
+            <div id="tooltip-asset-info-status-head"></div>
+            <div id="tooltip-asset-info-status-desc"></div>
+        </div>
+
+        <div id="tooltip-asset-info-perm">
+            Needs governmental permission.
+        </div>
+    </div>
+    <div id="tooltip-system-objects"></div>
+</div>
+<div id="faction-info">
+    <div id="faction-info-header-left">New Unified Church of Humanity</div>
+    <div id="faction-info-header-right">0407 / Dega / Heces</div>
+
+    <div style="width: 500px; border-top: 1px dotted #444"></div>
+
+    <div class="faction-stat" id="faction-info-stat-force">3</div>
+    <div class="faction-stat" id="faction-info-stat-cunning">6</div>
+    <div class="faction-stat" id="faction-info-stat-wealth">5</div>
+    <div class="faction-stat" id="faction-info-stat-hp">29/29</div>
+    <div class="faction-stat" id="faction-info-stat-income">6</div>
+    <div class="faction-stat" id="faction-info-stat-balance">12</div>
+    <div class="faction-stat" id="faction-info-stat-xp">3</div>
+    <div class="faction-label" id="faction-info-stat-force-label">Force</div>
+    <div class="faction-label" id="faction-info-stat-cunning-label">Cunning</div>
+    <div class="faction-label" id="faction-info-stat-wealth-label">Wealth</div>
+    <div class="faction-label" id="faction-info-stat-hp-label">HP</div>
+    <div class="faction-label" id="faction-info-stat-income-label">Income</div>
+    <div class="faction-label" id="faction-info-stat-balance-label">Balance</div>
+    <div class="faction-label" id="faction-info-stat-xp-label">XP</div>
+
+    <div id="faction-info-tag-name"></div>
+    <div id="faction-info-tag-desc"></div>
+
+    <div id="faction-info-goal-name"></div>
+    <div id="faction-info-goal-desc"></div>
+</div>
+
+</body>
+</html>
