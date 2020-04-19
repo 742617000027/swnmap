@@ -29,7 +29,7 @@ individual tabs of your sheet. Click on _File_ > _Publish to the web_. A popup d
 5. Choose _Publishing_ and _Tab-separated values (.tsv)_ in the two dropdown menus (and don't mind all the tabs that show up
 in the first dropdown menu, they include hidden tabs used for housekeeping purposes). This will generate a link to a .tsv 
 file containing the information of the specified tab. Copy the link and paste it in the **Publishing** tab next to where it
-says _Publishing_ (so in Cell B2).
+says _Publishing_ (so in cell B2).
 
 6. Repeat for the other tabs, so **FactionTracker**, **AssetTracker**, **PlanetMap** and **SectorObjects**. Paste their publishing
 links in the corresponding cells in the **Publishing** tab.
