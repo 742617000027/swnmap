@@ -44,8 +44,7 @@ paste it after `https://swnmap.com/?map=`.
 
 
 ### Missing sheets error
-If you see anything like the image below, something went wrong (I know it's not the prettiest of error messages, 
-I'm working on it).
+If you see anything like the image below, something went wrong (I know it's not the prettiest of error messages, working on it).
 
 ![Error](https://i.imgur.com/nB7zaXa.png)
 
