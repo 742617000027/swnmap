@@ -34,10 +34,7 @@ says _Publishing_ (so in cell B2).
 6. Repeat for the other tabs, so **FactionTracker**, **AssetTracker**, **PlanetMap** and **SectorObjects**. Paste their publishing
 links in the corresponding cells in the **Publishing** tab.
 
-7. Copy the URL at the bottom of the **Publishing** tab (the one where it says **COPY THIS**) and in your browser address bar,
-paste it after `https://swnmap.com/?map=`.
-
-8. If everything went according to plan, your sector will render in all its gloryness.
+7. If everything went according to plan, your sector is now available under the URL at the bottom of the **Publishing** tab. Click it and hopefully your sector will render in all its gloryness!
 
 
 ## Troubleshooting
