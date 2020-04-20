@@ -275,6 +275,10 @@ mark {
     user-select: none;
 }
 
+.blackhole-name {
+    user-select: none;
+}
+
 .planet-name {
     user-select: none;
 }
