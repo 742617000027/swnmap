@@ -1997,21 +1997,21 @@ function setVariables() {
         'Invincible Valor': 'Destroy a Force asset with a minimum purchase rating higher than your faction’s Force rating. Thus, if your Force is 3, you need to destroy a unit that requires Force 4 or higher to purchase. Difficulty 2.',
         'Wealth of Worlds': 'Spend FacCreds equal to four times your faction’s Wealth rating on bribes and influence. This money is effectively lost, but the goal is then considered accomplished. The faction’s Wealth rating must increase before this goal can be selected again. Difficulty 2.'
     };
-    window.systemObjectsChart = null;
     window.statuses = {
         'Disabled': 'A Disabled Asset can not Attack, Activate, be Sold (as in the Sell action), be Refit, or Defend. A Disabled Asset remains targetable but loses any passive effects or benefits while disabled, but extra upkeep costs associated with the Asset must still be paid. A Disabled asset can be traded, but the status is unchanged. Any attacks against a Disabled Asset automatically hit.',
         'Protected': 'A Protected Asset can not be targeted by rival Factions, defend, attack, or be activated. Before a Protected Asset can be sold, refit, or traded it must regain at least 1 HP. If traded an Asset looses this state.',
         'Seizing': 'A Faction with the Seizing status is actively seizing the planetary government of a planet. An Asset with the Seizing status can not be moved.',
         'Summoning': 'After being traded or bought Assets are given the \'Summoning Sickness\' status for one full turn. An Asset in \'Trade Stasis\' can not Expand Influence, Attack, Defend, or activate. Assets which provide a passive bonus can still apply that bonus.'
     };
+    window.systemObjectsChart = null;
     window.tracker = {};
 }
 
-function buildSector(url) {
+function buildSector(params) {
     return new Promise(resolve => {
-        fetchURLs(url)
-            .then(fetchSheets)
-            .then(mapFromSheets);
+        fetchURLs(params.url)
+            .then(payload => fetchSheets(payload))
+            .then(payload => mapFromSheets(payload, params));
         resolve();
     });
 }
@@ -2019,6 +2019,6 @@ function buildSector(url) {
 window.onload = () => {
     setVariables();
     parseURLParams()
-        .then(buildSector)
+        .then(params => buildSector(params))
         .catch(':(');
 };
