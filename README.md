@@ -8,7 +8,7 @@ Stars Without Number is a tabletop roleplaying game authored by Kevin Crawford. 
 
 An interactive interface to visualize your sector, to get it out of the spreadsheet it usually lives in. 
 
-[**Here is a live example**](https://swnmap.com/?map=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vQEsoaT4oSSpbc7S6DZpAHBnLu6Glfc7-arPAhS_kRA_z2lQK5I1U2wIc9y5av2o_A5ZuWh4TTCiawN%2Fpub%3Fgid%3D1077502528%26single%3Dtrue%26output%3Dtsv).
+[**Here is a live example**](https://swnmap.com/?map=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vQEsoaT4oSSpbc7S6DZpAHBnLu6Glfc7-arPAhS_kRA_z2lQK5I1U2wIc9y5av2o_A5ZuWh4TTCiawN%2Fpub%3Fgid%3D1077502528%26single%3Dtrue%26output%3Dtsv&cols=8&rows=10).
 
 
 ## How to use
