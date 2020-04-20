@@ -42,7 +42,13 @@ function parseURLParams() {
         const query = window.location.search;
         const params = new URLSearchParams(query);
         const url = params.get('map');
-        resolve(decodeURIComponent(url));
+        const cols = params.get('cols');
+        const rows = params.get('rows');
+        resolve({
+            'url': decodeURIComponent(url),
+            'cols': parseInt(cols),
+            'rows': parseInt(rows)
+        });
     });
 }
 
@@ -108,7 +114,7 @@ function fetchSheets(urls) {
     return Promise.all([PlanetMap, SectorObjects, FactionTracker, AssetTracker]);
 }
 
-function mapFromSheets(sheets) {
+function mapFromSheets(sheets, params) {
 
     let sheet_names = ['PlanetMap', 'SectorObjects', 'FactionTracker', 'AssetTracker'];
     let redirect = false;
@@ -124,7 +130,7 @@ function mapFromSheets(sheets) {
         landingPage(missing);
     } else {
         buildInterface();
-        buildGrid(sheets)
+        buildGrid(sheets, params)
             .then(payload => seedFactions(payload, sheets))
             .then(payload => seedSystemsAndPlanets(payload, sheets))
             .then(payload => seedAssets(payload, sheets))
@@ -200,23 +206,18 @@ function factionRow(fac) {
     return container;
 }
 
-function buildGrid(sheets) {
+function buildGrid(sheets, params) {
     return new Promise(resolve => {
-        let max_col = 0;
-        let max_row = 0;
         let num_systems = 0;
         let systems = [];
         sheets[0].forEach(planet => {
-            let system = planet['Parent System'].split(' / ')[1];
+            let system = planet['System'];
             if (!systems.includes(system)) {
                 systems.push(system);
                 num_systems++;
             }
-            let dims = parseHex(planet['Parent System'].split(' / ')[0]);
-            max_col = dims.col > max_col ? dims.col : max_col;
-            max_row = dims.row > max_row ? dims.row : max_row;
         });
-        placeTiles(max_col + 1, max_row + 1);
+        placeTiles(params.cols, params.rows);
         resolve({'numSystems': num_systems});
     });
 }
@@ -295,25 +296,24 @@ function seedSystemsAndPlanets(payload, sheets) {
         let systems_pad_length = payload.numSystems.toString().length;
         let planets_pad_length = sheets[0].length.toString().length;
         sheets[0].forEach((planet, index) => {
-            let name_components = planet['Name Constructor'].split(' / ');
-            if (!systems.includes(name_components[1])) {
-                systems.push(name_components[1]);
-                tracker.systems[name_components[1]] = new System(
+            if (!systems.includes(planet['System'])) {
+                systems.push(planet['System']);
+                tracker.systems[planet['System']] = new System(
                     'system-' + sys_cnt.toString().padStart(systems_pad_length, '0'),
                     {
-                        'name': name_components[1],
-                        'hex': name_components[0],
-                        'planets': [name_components[2]]
+                        'name': planet['System'],
+                        'hex': planet['Hex'],
+                        'planets': [planet['Name']]
                     });
                 sys_cnt++;
             } else {
-                tracker.systems[name_components[1]].planets.push(name_components[2]);
+                tracker.systems[planet['System']].planets.push(planet['Name']);
             }
 
-            tracker.planets[name_components[2]] = new Planet(
+            tracker.planets[planet['Name']] = new Planet(
                 'planet-' + index.toString().padStart(planets_pad_length, '0'),
                 planet);
-            arrangePlanets(name_components[1]);
+            arrangePlanets(planet['System']);
         });
         resolve();
     });
@@ -580,7 +580,6 @@ function distance(origin, target) {
 }
 
 function renderTree(objects) {
-    console.log(objects);
     if (objects.children.length > 0) {
         let chart_config = {
             chart: {
@@ -646,7 +645,6 @@ function displaySystemTooltip(id) {
 
     getElem('tooltip-name').innerHTML = system.name;
 
-    log(system.orbitalObjects);
     renderTree(system.orbitalObjects);
 }
 
