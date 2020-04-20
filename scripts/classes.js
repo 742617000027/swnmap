@@ -102,8 +102,8 @@ class Planet {
     constructor(id, planet) {
         this.id = id;
         this.name = planet['Name'];
-        this.system = planet['Parent System'].split(' / ')[1];
-        this.hex = planet['Parent System'].split(' / ')[0];
+        this.system = planet['System'];
+        this.hex = planet['Hex'];
         this.localAssets = [];
         this.homeworld = planet['Homeworld'];
         this.pgov = planet['Planetary Government'];
