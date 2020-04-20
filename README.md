@@ -56,6 +56,7 @@ as missing, then there's a problem with their specific publishing link.
 
 * Google Sheets can take up to five minutes to push changes in the sheets to the published .tsv files. Don't be surprised
 when changes do not immediately make it into the map.
+* sometimes, things will not render immediately — if you're seeing only the background image but no Missing Sheet error, simply try refreshing the page or emptying your cache
 * to be continued, but I appreciate bug reports, suggestions and pull requests. 
 
 
