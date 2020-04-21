@@ -840,7 +840,7 @@ function setVariables() {
             'UPKEEP': 0,
             'RANGE': 0
         },
-        'Blockade Fleets': {
+        'Blockade Fleet': {
             'STAT': 'Force',
             'STAT_TIER': 5,
             'ASSET': 'Blockade Fleets',
