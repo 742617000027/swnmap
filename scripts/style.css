@@ -533,6 +533,31 @@ mark {
     width: 340px;
 }
 
+#tooltip-asset-info-merc {
+    display: none;
+    position: relative;
+    width: 420px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+#tooltip-asset-info-merc-head {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#tooltip-asset-info-merc-desc {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 340px;
+}
+
 #tooltip-asset-info-special {
     display: none;
     position: relative;

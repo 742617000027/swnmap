@@ -265,6 +265,14 @@ function hexVertices(hex_x, hex_y, hex_w, hex_h) {
     return `${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y} ${D.x},${D.y} ${E.x},${E.y} ${F.x},${F.y} ${A.x},${A.y}`;
 }
 
+function resetHexColors() {
+    for (let hex in tracker.hexes) {
+        if (tracker.hexes.hasOwnProperty(hex)) {
+            tracker.hexes[hex].color('#222222');
+        }
+    }
+}
+
 function oddqToPixel(oddq, size, offset) {
     let col = parseInt(oddq.slice(0, 2));
     let row = parseInt(oddq.slice(2));
@@ -599,8 +607,8 @@ function first(i) {
 
 function inRange(origin, range) {
     let in_range = [];
-    for (let target in hexes) {
-        if (hexes.hasOwnProperty(id)) {
+    for (let target in tracker.hexes) {
+        if (tracker.hexes.hasOwnProperty(target)) {
             let d = distance(origin, target);
             if (d <= range) {
                 in_range.push(target);
@@ -653,6 +661,7 @@ function renderTree(objects) {
 
 function hideTooltip(id) {
     getElem('tooltip').style.opacity = '0';
+    resetHexColors();
     tooltipTimeout = setTimeout(() => {
         tipOn = false;
         getElem('tooltip').style.display = 'none';
@@ -764,6 +773,7 @@ function displayAssetTooltip(id) {
     getElem('tooltip-asset-info-atk').innerHTML = asset.atk;
     getElem('tooltip-asset-info-def').innerHTML = asset.def;
     getElem('tooltip-asset-info-stealth').style.display = asset.stealth ? 'block' : 'none';
+    getElem('tooltip-asset-info-merc').style.display = asset.mercenary ? 'block' : 'none';
     if (asset.special !== '') {
         getElem('tooltip-asset-info-special').style.display = 'block';
         getElem('tooltip-asset-info-special-desc').innerHTML = asset.special;
@@ -778,6 +788,14 @@ function displayAssetTooltip(id) {
         getElem('tooltip-asset-info-status').style.display = 'none';
     }
     getElem('tooltip-asset-info-perm').style.display = asset.perm ? 'block' : 'none';
+
+    if (asset.range > 0) {
+        let in_range = inRange(asset.hex, asset.range);
+        in_range.forEach(hex => {
+            let h = tracker.hexes[hex];
+            h.color('#292929');
+        });
+    }
 }
 
 function hideFactionInfo() {
