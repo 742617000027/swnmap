@@ -2,6 +2,7 @@ class Hex {
     constructor(id, size, offset) {
         let pixel = oddqToPixel(id, size, offset);
         this.id = id;
+        this.system = '';
         this.size = size;
         this.w = 0.98 * 2 * this.size;
         this.h = 0.98 * Math.sqrt(3) * this.size;
@@ -274,7 +275,7 @@ class BlackHole {
             .attr('width', 2 * padding + box_width)
             .attr('height', this.r / 3);
         this.highlightBox = getElem(this.id + '-highlight');
-        this.highlightBox.setAttribute('onmouseenter', `displayBlackHoleTooltip('${this.id}')`);
+        this.highlightBox.setAttribute('onmouseenter', `displayBlackHoleTooltip('${this.name}')`);
         this.highlightBox.setAttribute('onmouseleave', `hideTooltip('${this.id}')`);
 
     }

@@ -2,6 +2,10 @@ function log(obj) {
     console.log(obj);
 }
 
+function warning(obj) {
+    console.log(obj);
+}
+
 function getElem(id) {
     return document.getElementById(id);
 }
@@ -138,6 +142,7 @@ function mapFromSheets(sheets, params) {
             .then(attachSystemObjects)
             .then(attachPlanetObjects)
             .then(attachBlackHoleObjects)
+            .then(arrangePlanets)
             .then(recolorPlanets)
             .then(reorderAssets)
             .then(buildFactionOverview);
@@ -305,6 +310,7 @@ function seedSystemsAndPlanets(payload, sheets) {
                         'hex': planet['Hex'],
                         'planets': [planet['Name']]
                     });
+                tracker.hexes[planet['Hex']].system = planet['System'];
                 sys_cnt++;
             } else {
                 tracker.systems[planet['System']].planets.push(planet['Name']);
@@ -313,7 +319,7 @@ function seedSystemsAndPlanets(payload, sheets) {
             tracker.planets[planet['Name']] = new Planet(
                 'planet-' + index.toString().padStart(planets_pad_length, '0'),
                 planet);
-            arrangePlanets(planet['System']);
+            // arrangePlanets(planet['System']);
         });
         resolve();
     });
@@ -326,11 +332,16 @@ function seedAssets(payload, sheets) {
         let asset_cnt = 0;
         sheets[3].forEach(asset => {
             if (asset['Asset'] !== '') {
-                let id = 'asset-' + asset_cnt.toString().padStart(assets_pad_length, '0');
-                tracker.assets[id] = new Asset(id, asset);
-                tracker.planets[asset['Location'].split(' / ')[2]].localAssets.push(id);
-                tracker.factions[asset['Owner']].assets.push(id);
-                asset_cnt++;
+                if (assets.hasOwnProperty(asset['Asset']) || asset['Asset'] === 'Base Of Influence') {
+                    let id = 'asset-' + asset_cnt.toString().padStart(assets_pad_length, '0');
+                    tracker.assets[id] = new Asset(id, asset);
+                    tracker.planets[asset['Location'].split(' / ')[2]].localAssets.push(id);
+                    tracker.factions[asset['Owner']].assets.push(id);
+                    asset_cnt++;
+                } else {
+                    warning(`Can't find this asset: ${asset['Asset']} — possibly a naming mismatch. If you feel like it
+                    please report this bug over at github.com/742617000027/swnmap/.`);
+                }
             }
         });
         resolve();
@@ -363,7 +374,15 @@ function seedSystemObjects(payload, sheets) {
             let type = obj['Object Type'];
             if (type === 'Black Hole') {
                 let id = 'blackhole-' + blackHoles.toString();
-                tracker.blackHoles[id] = new BlackHole(id, obj);
+                tracker.blackHoles[obj['Name']] = new BlackHole(id, obj);
+                if (tracker.hexes[tracker.blackHoles[obj['Name']].hex].system !== '') {
+                    let sys = tracker.hexes[tracker.blackHoles[obj['Name']].hex].system;
+                    tracker.systems[sys].planets.push(obj['Name']);
+                    tracker.systemObjects[sys]['children'][obj['Name']] = {
+                        'type': 'Black Hole',
+                        'children': {}
+                    };
+                }
                 blackHoles++;
             }
             components.forEach(comp => {
@@ -374,6 +393,11 @@ function seedSystemObjects(payload, sheets) {
                         if (tracker.planets.hasOwnProperty(comp)) {
                             root[comp] = {
                                 'type': 'Planet',
+                                'children': {}
+                            };
+                        } else if (tracker.blackHoles.hasOwnProperty(comp)) {
+                            root[comp] = {
+                                'type': 'Black Hole',
                                 'children': {}
                             };
                         } else {
@@ -390,19 +414,32 @@ function seedSystemObjects(payload, sheets) {
     });
 }
 
-function arrangePlanets(system) {
-    let num_planets = tracker.systems[system].planets.length;
-    if (num_planets > 1) {
-        let hex = tracker.systems[system].hex;
-        let r = tracker.hexes[hex].size * 0.45;
-        let hex_x = tracker.hexes[hex].x;
-        let hex_y = tracker.hexes[hex].y;
-        tracker.systems[system].planets.forEach((planet, index) => {
-            let x = r * Math.cos(Math.PI + index * 2 * Math.PI / num_planets);
-            let y = r * Math.sin(Math.PI + index * 2 * Math.PI / num_planets);
-            tracker.planets[planet].position({'x': hex_x - x, 'y': y + hex_y});
-        });
-    }
+function arrangePlanets() {
+    return new Promise(resolve => {
+        for (let system in tracker.systems) {
+            if (tracker.systems.hasOwnProperty(system)) {
+                let num_planets = tracker.systems[system].planets.length;
+                if (num_planets > 1) {
+                    let hex = tracker.systems[system].hex;
+                    let r = tracker.hexes[hex].size * 0.45;
+                    let hex_x = tracker.hexes[hex].x;
+                    let hex_y = tracker.hexes[hex].y;
+                    tracker.systems[system].planets.forEach((planet, index) => {
+                        if (tracker.planets.hasOwnProperty(planet)) {
+                            let x = r * Math.cos(Math.PI + index * 2 * Math.PI / num_planets);
+                            let y = r * Math.sin(Math.PI + index * 2 * Math.PI / num_planets);
+                            tracker.planets[planet].position({'x': hex_x - x, 'y': y + hex_y});
+                        } else if (tracker.blackHoles.hasOwnProperty(planet)) {
+                            let x = r * Math.cos(Math.PI + index * 2 * Math.PI / num_planets);
+                            let y = r * Math.sin(Math.PI + index * 2 * Math.PI / num_planets);
+                            tracker.blackHoles[planet].position({'x': hex_x - x, 'y': y + hex_y});
+                        }
+                    });
+                }
+            }
+        }
+        resolve();
+    });
 }
 
 function recolorPlanets() {
