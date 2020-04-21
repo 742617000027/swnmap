@@ -200,7 +200,7 @@ function factionRow(fac) {
     name.id = fac.short.toLowerCase() + '-name';
     name.classList.add('faction-name');
     name.innerHTML = fac.short.toUpperCase();
-    name.setAttribute('onmouseenter', `displayFactionInfo('${fac.name}')`);
+    name.setAttribute('onmouseenter', `displayFactionInfo("${encodeURIComponent(fac.name)}")`);
     name.setAttribute('onmouseleave', 'hideFactionInfo()');
     let color = document.createElement('div');
     color.id = fac.short.toLowerCase() + '-color';
@@ -788,7 +788,7 @@ function hideFactionInfo() {
 }
 
 function displayFactionInfo(id) {
-    let faction = tracker.factions[id];
+    let faction = tracker.factions[decodeURIComponent(id)];
     clearTimeout(factionInfoTimeout);
     getElem('faction-info').style.display = 'block';
     getElem('faction-info').style.opacity = '1';
