@@ -153,7 +153,7 @@ class Planet {
         g
             .insert('rect', '#' + this.id + '-name')
             .attr('id', this.id + '-color')
-            .attr('class', 'planet color')
+            .attr('class', 'planet planet-color')
             .attr('fill', '#222222')
             .attr('x', this.x - (box_width / 2) - padding)
             .attr('y', this.y + this.r - this.r / 3 + this.r / 20)
@@ -194,10 +194,14 @@ class Planet {
     }
 
     format(f) {
-        let text_color = f.color !== '#222222' ? textColor(f.color) : '#7c7c7c';
-        this.colorBox.setAttribute('fill', f.color);
-        this.text.setAttribute('fill', text_color);
-        this.text.setAttribute('font-weight', f.fontWeight);
+        if (f.hasOwnProperty('color')) {
+            let text_color = f.hasOwnProperty('fontColor') ? f.fontColor : (f.color !== '#222222' ? textColor(f.color) : '#7c7c7c');
+            this.colorBox.setAttribute('fill', f.color);
+            this.text.setAttribute('fill', text_color);
+        }
+        if (f.hasOwnProperty('font-weight')) {
+            this.text.setAttribute('font-weight', f.fontWeight);
+        }
         let box_width = this.text.getComputedTextLength();
         let padding = this.r / 16;
         this.colorBox.setAttribute('x', this.x - (box_width / 2) - padding);

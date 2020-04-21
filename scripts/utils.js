@@ -662,6 +662,7 @@ function renderTree(objects) {
 function hideTooltip(id) {
     getElem('tooltip').style.opacity = '0';
     resetHexColors();
+    recolorPlanets();
     tooltipTimeout = setTimeout(() => {
         tipOn = false;
         getElem('tooltip').style.display = 'none';
@@ -794,6 +795,19 @@ function displayAssetTooltip(id) {
         in_range.forEach(hex => {
             let h = tracker.hexes[hex];
             h.color('#292929');
+            if (h.system !== '') {
+                tracker.systems[h.system].planets.forEach(planet => {
+                    if (tracker.planets.hasOwnProperty(planet)) {
+                        let p = tracker.planets[planet];
+                        if (p.pgov === '') {
+                            p.format({
+                                'color': '#292929',
+                                'fontColor': '#7c7c7c'
+                            });
+                        }
+                    }
+                });
+            }
         });
     }
 }

@@ -283,6 +283,10 @@ mark {
     user-select: none;
 }
 
+.planet-color {
+    transition: fill 0.2s ease-in-out;
+}
+
 .asset {
     transition: x 0.2s ease-in-out, y 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
 }
