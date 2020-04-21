@@ -6,9 +6,12 @@ Stars Without Number is a tabletop roleplaying game authored by Kevin Crawford. 
 ![Static](https://i.imgur.com/iTSJ5re.png) | ![Animation](https://media.giphy.com/media/h4HdSpDE6tzOYY8xPY/giphy.gif)
 ------------------------------------------ | ------------------------------------------------------------------------ 
 
-An interactive interface to visualize your sector, to get it out of the spreadsheet it usually lives in. 
+An interactive interface to visualize your sector, to get it out of the spreadsheet it usually lives in. Features for now include:
+* displaying of planet details like Planetary Government, TL, population, atmosphere, temperature, biosphere, planet tags and orbiting objects
+* displaying of asset details like owner, HP, Cost, TL, Attack and Counter stats, special abilities and its range in case it can move itself or other assets
+* displaying of faction details like attributes, HP, income, balance, XP, faction tag and faction goal
 
-[**Here is a live example**](https://swnmap.com/?map=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vQEsoaT4oSSpbc7S6DZpAHBnLu6Glfc7-arPAhS_kRA_z2lQK5I1U2wIc9y5av2o_A5ZuWh4TTCiawN%2Fpub%3Fgid%3D1077502528%26single%3Dtrue%26output%3Dtsv&cols=8&rows=10).
+[**Here is a live example**](https://swnmap.com/?map=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vQEsoaT4oSSpbc7S6DZpAHBnLu6Glfc7-arPAhS_kRA_z2lQK5I1U2wIc9y5av2o_A5ZuWh4TTCiawN%2Fpub%3Fgid%3D1077502528%26single%3Dtrue%26output%3Dtsv&cols=8&rows=10). Just mouseover different elements on the map, chances are a popup with more details will appear!
 
 
 ## How to use
