@@ -79,6 +79,6 @@ Kevin Crawford, the [Rollplay](https://twitter.com/rollplay) franchise and all i
 
 ## Changelog
 #### 2020 / 04 / 23
-* Custom lore can now be displayed on asset info cards by adding a column titled "Lore" to the **AssetTracker** tab. It will show up on asset info cards like this:
+* Custom lore can now be displayed on asset info cards by adding a column titled "Lore" to the **AssetTracker** tab (already included in the template). It will show up on asset info cards like this:
 
 ![Lore](https://i.imgur.com/aX8WGiW.png?1)
