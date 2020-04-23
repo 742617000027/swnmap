@@ -788,6 +788,13 @@ function displayAssetTooltip(id) {
     } else {
         getElem('tooltip-asset-info-status').style.display = 'none';
     }
+    if (asset.lore !== '') {
+        getElem('tooltip-asset-info-lore').style.display = 'block';
+        getElem('tooltip-asset-info-lore-desc').innerHTML = asset.lore;
+    } else {
+        getElem('tooltip-asset-info-lore').style.display = 'none';
+    }
+
     getElem('tooltip-asset-info-perm').style.display = asset.perm ? 'block' : 'none';
 
     if (asset.range > 0) {

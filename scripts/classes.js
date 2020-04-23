@@ -352,6 +352,7 @@ class Asset {
         this.tier = this.isBoi ? '-' : assets[this.name]['STAT_TIER'];
         this.perm = this.isBoi ? false : (assets[this.name]['PERM'] !== '' ? true : false);
         this.special = this.isBoi ? '' : assets[this.name]['SPECIAL'];
+        this.lore = asset.hasOwnProperty('Lore') ? asset['Lore'] : '';
         this.range = this.isBoi ? 0 : assets[this.name]['RANGE'];
         if (!this.isBoi && this.range === 0 && this.mercenary) {
             this.range = 1;
