@@ -67,6 +67,8 @@ when changes do not immediately make it into the map.
 - [ ] dice roller to resolve fights between assets
 - [ ] scoring system to measure each faction's standing in the sector
 - [ ] politcal map overlay based on that scoring
+- [ ] ???
+- [ ] complete rework to support own database as backend and sector manipulation through an interface directly from the map
 
 ## Credits
 Kevin Crawford, the [Rollplay](https://twitter.com/rollplay) franchise and all involved, [OutrO](https://www.twitch.tv/outro1), [Dgaduin](https://github.com/Dgaduin), 
