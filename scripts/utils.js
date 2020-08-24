@@ -56,8 +56,12 @@ function parseURLParams() {
     });
 }
 
+function fixURL(url) {
+    return 'https://cors-anywhere.herokuapp.com/' + url;
+}
+
 function fetchURLs(url) {
-    return fetch(url)
+    return fetch(fixURL(url))
         .then(handleErrors)
         .then(val => {
             return val === ':(' ? ':(' : val.text();
@@ -83,7 +87,7 @@ function fetchURLs(url) {
 }
 
 function fetchSheets(urls) {
-    let PlanetMap = fetch(urls['PlanetMap'])
+    let PlanetMap = fetch(fixURL(urls['PlanetMap']))
         .then(handleErrors)
         .then(val => {
             return val === ':(' ? ':(' : val.text();
@@ -91,7 +95,7 @@ function fetchSheets(urls) {
         .then(val => {
             return val === ':(' ? ':(' : tsvJSON(val);
         });
-    let SectorObjects = fetch(urls['SectorObjects'])
+    let SectorObjects = fetch(fixURL(urls['SectorObjects']))
         .then(handleErrors)
         .then(val => {
             return val === ':(' ? ':(' : val.text();
@@ -99,7 +103,7 @@ function fetchSheets(urls) {
         .then(val => {
             return val === ':(' ? ':(' : tsvJSON(val);
         });
-    let FactionTracker = fetch(urls['FactionTracker'])
+    let FactionTracker = fetch(fixURL(urls['FactionTracker']))
         .then(handleErrors)
         .then(val => {
             return val === ':(' ? ':(' : val.text();
@@ -107,7 +111,7 @@ function fetchSheets(urls) {
         .then(val => {
             return val === ':(' ? ':(' : tsvJSON(val);
         });
-    let AssetTracker = fetch(urls['AssetTracker'])
+    let AssetTracker = fetch(fixURL(urls['AssetTracker']))
         .then(handleErrors)
         .then(val => {
             return val === ':(' ? ':(' : val.text();
@@ -855,12 +859,3 @@ function displayFactionInfo(id) {
         getElem('faction-info-goal-desc').style.display = 'none';
     }
 }
-
-
-
-
-
-
-
-
-
