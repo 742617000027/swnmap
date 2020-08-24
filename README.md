@@ -8,7 +8,7 @@ Stars Without Number is a tabletop roleplaying game authored by Kevin Crawford. 
 
 An interactive interface to visualize your sector, to get it out of the spreadsheet it usually lives in. Features for now include:
 * displaying of planet details like Planetary Government, TL, population, atmosphere, temperature, biosphere, planet tags and orbiting objects
-* displaying of asset details like owner, HP, Cost, TL, Attack and Counter stats, special abilities and its range in case it can move itself or other assets
+* displaying of asset details like custom lore, owner, HP, Cost, TL, Attack and Counter stats, special abilities and its range in case it can move itself or other assets
 * displaying of faction details like attributes, HP, income, balance, XP, faction tag and faction goal
 
 [**Here is a live example**](https://swnmap.com/?map=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vQEsoaT4oSSpbc7S6DZpAHBnLu6Glfc7-arPAhS_kRA_z2lQK5I1U2wIc9y5av2o_A5ZuWh4TTCiawN%2Fpub%3Fgid%3D1077502528%26single%3Dtrue%26output%3Dtsv&cols=8&rows=10). Just mouseover different elements on the map, chances are a popup with more details will appear!
@@ -67,6 +67,8 @@ when changes do not immediately make it into the map.
 - [ ] dice roller to resolve fights between assets
 - [ ] scoring system to measure each faction's standing in the sector
 - [ ] politcal map overlay based on that scoring
+- [ ] ???
+- [ ] complete rework to support own database as backend and sector manipulation through an interface directly from the map
 
 ## Credits
 Kevin Crawford, the [Rollplay](https://twitter.com/rollplay) franchise and all involved, [OutrO](https://www.twitch.tv/outro1), [Dgaduin](https://github.com/Dgaduin), 
@@ -76,3 +78,9 @@ Kevin Crawford, the [Rollplay](https://twitter.com/rollplay) franchise and all i
 * Discord: no742617000027#5970
 * Twitter: @no742617000027
 * Email: srummel@pm.me 
+
+## Changelog
+#### 2020 / 04 / 23
+* Custom lore can now be displayed on asset info cards by adding a column titled "Lore" to the **AssetTracker** tab (already included in the template). It will show up on asset info cards like this:
+
+![Lore](https://i.imgur.com/aX8WGiW.png?1)
