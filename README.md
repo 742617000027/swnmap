@@ -71,8 +71,8 @@ when changes do not immediately make it into the map.
 - [ ] complete rework to support own database as backend and sector manipulation through an interface directly from the map
 
 ## Credits
-Kevin Crawford, the [Rollplay](https://twitter.com/rollplay) franchise and all involved, [OutrO](https://www.twitch.tv/outro1), [Dgaduin](https://github.com/Dgaduin), 
-[NotShteve](https://twitter.com/NotShteve), [LichMaster98](https://github.com/LichMaster98), the 14 Red Dogs Triad and all of Acheron Rho.
+Kevin Crawford, [OutrO](https://www.twitch.tv/outro1), [Dgaduin](https://github.com/Dgaduin), 
+[NotShteve](https://twitter.com/NotShteve), [LichMaster98](https://github.com/LichMaster98).
 
 ## Contact
 * Discord: no742617000027#5970
