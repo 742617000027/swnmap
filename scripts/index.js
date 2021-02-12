@@ -80,7 +80,7 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'For one FacCred, the smugglers asset can transport itself and/or any one Special Forces unit to a planet up to two hexes away.',
+            'SPECIAL': 'For one FacCred, the Smugglers asset can transport itself and/or any one Special Forces unit to a location up to two hexes away (no action).',
             'UPKEEP': 0,
             'RANGE': 2
         },
@@ -136,14 +136,14 @@ function setVariables() {
             'TYPE': 'Special Forces',
             'ATTACK': 'Cunning',
             'DEFENSE': 'Cunning',
-            'ATK_NUM_DICE': null,
-            'ATK_NUM_SIDES': null,
-            'ATK_MOD': null,
-            'DEF_NUM_DICE': null,
-            'DEF_NUM_SIDES': null,
+            'ATK_NUM_DICE': 1,
+            'ATK_NUM_SIDES': 4,
+            'ATK_MOD': 1,
+            'DEF_NUM_DICE': 1,
+            'DEF_NUM_SIDES': 4,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'Usable to block the governmental permission that is sometimes required to buy an asset or transport it into a system. When a rival faction gains permission to do so, the Lobbyists can make an immediate Cunning vs. Cunning test against the faction; if successful, the permission is with- drawn and cannot be re-attempted until next turn.',
+            'SPECIAL': 'Usable to block the governmental permission that is sometimes required to buy an asset on a world. When a rival faction gains permission to do so, the Lobbyists can make an immediate Cunning vs. Cunning test against the faction; if successful, the permission is withdrawn and cannot be reattempted until next turn.',
             'UPKEEP': 0,
             'RANGE': 0
         },
@@ -179,7 +179,7 @@ function setVariables() {
             'ATTACK': 'Cunning',
             'DEFENSE': 'Cunning',
             'ATK_NUM_DICE': 1,
-            'ATK_NUM_SIDES': 4,
+            'ATK_NUM_SIDES': 6,
             'ATK_MOD': 1,
             'DEF_NUM_DICE': null,
             'DEF_NUM_SIDES': null,
@@ -256,20 +256,20 @@ function setVariables() {
             'STAT': 'Cunning',
             'STAT_TIER': 4,
             'ASSET': 'Party Machine',
-            'HP': 10,
+            'HP': 8,
             'COST': 8,
             'TL': 0,
             'TYPE': 'Facility',
             'ATTACK': 'Cunning',
             'DEFENSE': 'Cunning',
             'ATK_NUM_DICE': 2,
-            'ATK_NUM_SIDES': 6,
+            'ATK_NUM_SIDES': 4,
             'ATK_MOD': null,
             'DEF_NUM_DICE': 1,
             'DEF_NUM_SIDES': 6,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'Each turn, a Party Machine provides 1 FacCred to its owning faction.',
+            'SPECIAL': 'As an action, roll 1d6. On a 4+ gain 1 FC, else gain nothing.',
             'UPKEEP': 1,
             'RANGE': 0
         },
@@ -277,20 +277,20 @@ function setVariables() {
             'STAT': 'Cunning',
             'STAT_TIER': 4,
             'ASSET': 'Vanguard Cadres',
-            'HP': 12,
+            'HP': 10,
             'COST': 8,
             'TL': 3,
             'TYPE': 'Military Unit',
             'ATTACK': 'Cunning',
             'DEFENSE': 'Cunning',
             'ATK_NUM_DICE': 1,
-            'ATK_NUM_SIDES': 6,
+            'ATK_NUM_SIDES': 8,
             'ATK_MOD': null,
             'DEF_NUM_DICE': 1,
-            'DEF_NUM_SIDES': 6,
+            'DEF_NUM_SIDES': 8,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': '',
+            'SPECIAL': 'At half health and below, this asset attacks for 2d6 damage',
             'UPKEEP': 0,
             'RANGE': 0
         },
@@ -340,7 +340,7 @@ function setVariables() {
             'STAT': 'Cunning',
             'STAT_TIER': 5,
             'ASSET': 'Organization Moles',
-            'HP': 8,
+            'HP': 10,
             'COST': 10,
             'TL': 0,
             'TYPE': 'Tactic',
@@ -353,7 +353,7 @@ function setVariables() {
             'DEF_NUM_SIDES': 6,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': '',
+            'SPECIAL': 'Any attempt to attack or defend against Organization Moles loses any bonus dice earned by tags.',
             'UPKEEP': 0,
             'RANGE': 0
         },
@@ -458,7 +458,7 @@ function setVariables() {
             'DEF_NUM_SIDES': 8,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': '',
+            'SPECIAL': ' All special forces assets on the same planet as a Demagogue gain +1 to rolls with their damage dice, this bonus is doubled while in stealth and does not stack with multiple Demagogues.',
             'UPKEEP': 0,
             'RANGE': 0
         },
@@ -521,7 +521,7 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'On a successful attack, the Treachery asset is lost, 5 FacCreds are gained, and the targeted asset switches sides to join the traitor’s faction, even if the faction does not otherwise have the attributes necessary.',
+            'SPECIAL': 'On a successful attack, the Treachery asset is lost, 5 FacCreds are gained, and the targeted asset switches sides to join the traitor’s faction, even if the faction does not otherwise have the attributes necessary to purchase it.',
             'UPKEEP': 0,
             'RANGE': 0
         },
@@ -626,9 +626,9 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'As an action, any one non-Starship asset, including this one, may be moved to any world within one hex for one FacCred.',
+            'SPECIAL': 'For two FacCreds, the Heavy Drop Assets can transport any one Military Unit or Special Forces type asset, including itself, to a planet up to two hexes away (no action).',
             'UPKEEP': 0,
-            'RANGE': 1
+            'RANGE': 2
         },
         'Elite Skirmishers': {
             'STAT': 'Force',
@@ -773,9 +773,9 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'As an action, the asset may move any number of assets on the planet, including itself, to any world within one hex at a cost of one FacCred per asset moved.',
+            'SPECIAL': 'As an action, the Beachhead Landers may move any number of Force assets, including itself, to any world within two hexes at a cost of one FacCred per asset.',
             'UPKEEP': 0,
-            'RANGE': 1
+            'RANGE': 2
         },
         'Extended Theater': {
             'STAT': 'Force',
@@ -794,7 +794,7 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'As an action, any one non-Starship asset, including itself, can be moved between any two worlds within two hexes of the extended theater, at a cost of 1 FacCred.',
+            'SPECIAL': 'At a cost of 1 FacCred, any non-Starship asset, including itself, can be moved between any two worlds within two hexes of the Extended Theater (no action).',
             'UPKEEP': 0,
             'RANGE': 2
         },
@@ -815,9 +815,9 @@ function setVariables() {
             'DEF_NUM_SIDES': 8,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'As an action, they can move to any world within one hex of their current location.',
+            'SPECIAL': 'For one FacCred, they can move to any location within two hexes of their current location (no action).',
             'UPKEEP': 0,
-            'RANGE': 1
+            'RANGE': 2
         },
         'Postech Infantry': {
             'STAT': 'Force',
@@ -857,9 +857,9 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'When they successfully Attack an enemy faction asset, they steal 1d4 FacCreds from the target faction as well. This theft can occur to a faction only once per turn, no matter how many blockade fleets attack. As an action, this asset may also move itself to a world within one hex.',
+            'SPECIAL': 'When they successfully Attack an enemy faction asset, they steal 1d4 FacCreds from the target faction as well. This theft can occur to a faction only once per turn, no matter how many blockade fleets attack. As an action, this asset may also move itself to a world within two hexes.',
             'UPKEEP': 0,
-            'RANGE': 1
+            'RANGE': 2
         },
         'Pretech Logistics': {
             'STAT': 'Force',
@@ -1130,7 +1130,7 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'As an action, the faction may move any one non-Force asset, including this one, to any world within two hexes at a cost of one FacCred.',
+            'SPECIAL': 'As an action, the Freighter Contract asset can transport itself and/or any one non-Force asset to a location up to two hexes away at a cost of one FacCred.',
             'UPKEEP': 0,
             'RANGE': 2
         },
@@ -1235,7 +1235,7 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'The presence of a Laboratory allows assets to be purchased on that world as if it had Tech Level 4.',
+            'SPECIAL': 'The presence of a Laboratory allows assets to be purchased on that world as if it had tech level 4, at +2 FacCreds cost.',
             'UPKEEP': 0,
             'RANGE': 0
         },
@@ -1352,8 +1352,8 @@ function setVariables() {
             'COST': 10,
             'TL': 0,
             'TYPE': 'Tactic',
-            'ATTACK': 'Cunning',
-            'DEFENSE': 'Wealth',
+            'ATTACK': 'Wealth',
+            'DEFENSE': 'Cunning',
             'ATK_NUM_DICE': 1,
             'ATK_NUM_SIDES': 6,
             'ATK_MOD': null,
@@ -1361,7 +1361,7 @@ function setVariables() {
             'DEF_NUM_SIDES': null,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'As an action, the marketers may test Cunning vs. Wealth against a rival faction’s asset. If successful, the target faction must immediately pay half the asset’s purchase cost, rounded down, or have it become disabled and useless until this price is paid.',
+            'SPECIAL': 'On a successful attack, the target faction chooses to either pay half the asset’s purchase cost, rounded down, or have the asset become disabled until this price is paid. This special attack can be blocked like treachery, and is a \'called attack\' by the attacker.',
             'UPKEEP': 0,
             'RANGE': 0
         },
@@ -1403,7 +1403,7 @@ function setVariables() {
             'DEF_NUM_SIDES': 4,
             'DEF_MOD': null,
             'PERM': '',
-            'SPECIAL': 'As an action, a blockade runner can transfer itself or any one Military Unit or Special Forces to a world within three hexes for a cost of two FacCreds. They can even move units that would otherwise require planetary government permission to enter.',
+            'SPECIAL': 'As an action, a Blockade Runner asset can transfer itself and/or any one Military Unit or Special Forces to a location within three hexes for a cost of two FacCreds',
             'UPKEEP': 0,
             'RANGE': 3
         },
@@ -2001,7 +2001,8 @@ function setVariables() {
         'Disabled': 'A Disabled Asset can not Attack, Activate, be Sold (as in the Sell action), be Refit, or Defend. A Disabled Asset remains targetable but loses any passive effects or benefits while disabled, but extra upkeep costs associated with the Asset must still be paid. A Disabled asset can be traded, but the status is unchanged. Any attacks against a Disabled Asset automatically hit.',
         'Protected': 'A Protected Asset can not be targeted by rival Factions, defend, attack, or be activated. Before a Protected Asset can be sold, refit, or traded it must regain at least 1 HP. If traded an Asset looses this state.',
         'Seizing': 'A Faction with the Seizing status is actively seizing the planetary government of a planet. An Asset with the Seizing status can not be moved.',
-        'Summoning': 'After being traded or bought Assets are given the \'Summoning Sickness\' status for one full turn. An Asset in \'Trade Stasis\' can not Expand Influence, Attack, Defend, or activate. Assets which provide a passive bonus can still apply that bonus.'
+        'Purchase Sickness': 'After being bought Assets are given the \'Purchase Sickness\' status for one full turn. An Asset in \'Sickness\' can not Expand Influence, Attack, Defend, or activate. Assets which provide a passive bonus can still apply that bonus.',
+		'Trade Sickness': 'After being traded Assets are given the \'Trade Sickness\' status for one full turn. An Asset in \'Sickness\' can not Expand Influence, Attack, Defend, or activate. Assets which provide a passive bonus can still apply that bonus.',
     };
     window.systemObjectsChart = null;
     window.tracker = {};
