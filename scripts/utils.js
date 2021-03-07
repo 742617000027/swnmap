@@ -57,7 +57,7 @@ function parseURLParams() {
 }
 
 function fixURL(url) {
-    return 'http://unrestricted-lorefare-cors.duckdns.org:8080/' + url;
+    return 'https://lichmastergaming.net:8080/' + url;
 }
 
 function fetchURLs(url) {
