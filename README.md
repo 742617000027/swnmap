@@ -77,7 +77,6 @@ Kevin Crawford, [OutrO](https://www.twitch.tv/outro1), [Dgaduin](https://github.
 ## Contact
 * Discord: no742617000027#5970
 * Twitter: @no742617000027
-* Email: srummel@pm.me 
 
 ## Changelog
 #### 2020 / 04 / 23
