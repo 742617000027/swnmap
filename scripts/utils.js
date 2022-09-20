@@ -45,19 +45,17 @@ function parseURLParams() {
     return new Promise(resolve => {
         const query = window.location.search;
         const params = new URLSearchParams(query);
-        const url = params.get('map');
-        const cols = params.get('cols');
-        const rows = params.get('rows');
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ9C9CpyWM6Xwp-8WXCWZ2SeBXLIQT_Dkeee2xgkwvAvwZMLyE1OxwnHCNw8Sm44ebMj9Ie0oVPACqx/pub?gid=1077502528&single=true&output=tsv';
         resolve({
             'url': decodeURIComponent(url),
-            'cols': parseInt(cols),
-            'rows': parseInt(rows)
+            'cols': 19,
+            'rows': 19
         });
     });
 }
 
 function fixURL(url) {
-    return 'https://lichmastergaming.net:8080/' + url;
+    return 'https://unrestrictedlorefare.com:8443/' + url;
 }
 
 function fetchURLs(url) {
@@ -847,6 +845,11 @@ function displayFactionInfo(id) {
     getElem('faction-info-stat-xp').innerHTML = faction.xp;
 
     getElem('faction-info-tag-name').innerHTML = faction.tag;
+    let factionTags = faction.tag.split(",");
+    let tagDesc = factionTags[0];
+    for (var tag of factionTags.slice(1)) {
+        tagDesc = tagDesc.concat("\n", tag)
+    }
     getElem('faction-info-tag-desc').innerHTML = factionTags[faction.tag];
 
     if (faction.goal !== '') {
