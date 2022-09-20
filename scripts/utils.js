@@ -844,13 +844,13 @@ function displayFactionInfo(id) {
     getElem('faction-info-stat-balance').innerHTML = faction.balance;
     getElem('faction-info-stat-xp').innerHTML = faction.xp;
 
-    getElem('faction-info-tag-name').innerHTML = faction.tag;
-    let factionTags = faction.tag.split(",");
-    let tagDesc = factionTags[0];
-    for (var tag of factionTags.slice(1)) {
-        tagDesc = tagDesc.concat("\n", tag)
+    getElem('faction-info-tag-name').innerHTML = faction.tags;
+    let factionTagElements = faction.tags.split(",");
+    let tagDesc = factionTags[factionTagElements[0].trim()];
+    for (var tag of factionTagElements.slice(1)) {
+        tagDesc = tagDesc.concat("\n", factionTags[tag.trim()])
     }
-    getElem('faction-info-tag-desc').innerHTML = factionTags[faction.tag];
+    getElem('faction-info-tag-desc').innerHTML = tagDesc;
 
     if (faction.goal !== '') {
         getElem('faction-info-goal-name').style.display = 'inline-block';

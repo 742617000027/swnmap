@@ -317,7 +317,7 @@ class Faction {
         this.income = fac['Income'];
         this.upkeep = fac['Upkeep'];
         this.balance = fac['Balance'];
-        this.tag = fac['Tag'];
+        this.tags = fac['Tags'];
         this.goal = fac['Goal'];
         this.xp = fac['EXP'];
         this.relationship = fac['Relationship'];
