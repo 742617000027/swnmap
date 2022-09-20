@@ -546,6 +546,27 @@ function setVariables() {
             'UPKEEP': 0,
             'RANGE': 0
         },
+        'White Whale': {
+            'STAT': 'Cunning',
+            'STAT_TIER': 6,
+            'ASSET': 'White Whale',
+            'HP': 20,
+            'COST': 0,
+            'TL': 5,
+            'TYPE': 'Spaceship',
+            'ATTACK': 'Force',
+            'DEFENSE': 'Force',
+            'ATK_NUM_DICE': 2,
+            'ATK_NUM_SIDES': 4,
+            'ATK_MOD': null,
+            'DEF_NUM_DICE': 1,
+            'DEF_NUM_SIDES': 6,
+            'DEF_MOD': null,
+            'PERM': '',
+            'SPECIAL': 'As an action the White Whale can move itself up to 2 Hexes, gain the Stealth property or heal 1d3-1 HP. Any Faction other than the Aguamala Syndicate has disadvantage when attacking the White Whale.',
+            'UPKEEP': 0,
+            'RANGE': 2
+        },
         'Security Personnel': {
             'STAT': 'Force',
             'STAT_TIER': 1,
@@ -606,6 +627,27 @@ function setVariables() {
             'DEF_MOD': 1,
             'PERM': 'P',
             'SPECIAL': '',
+            'UPKEEP': 0,
+            'RANGE': 0
+        },
+        'Distorted Lense': {
+            'STAT': 'Force',
+            'STAT_TIER': 1,
+            'ASSET': 'Distorted Lense',
+            'HP': 6,
+            'COST': 0,
+            'TL': 4,
+            'TYPE': 'Special Forces',
+            'ATTACK': 'Force',
+            'DEFENSE': 'Force',
+            'ATK_NUM_DICE': 1,
+            'ATK_NUM_SIDES': 6,
+            'ATK_MOD': null,
+            'DEF_NUM_DICE': 1,
+            'DEF_NUM_SIDES': 4,
+            'DEF_MOD': null,
+            'PERM': '',
+            'SPECIAL': 'Scrapping this asset requires a concentrated effort given the bleed infusion process costing 1 FC per scrap. When attacking this unit always has advantage.',
             'UPKEEP': 0,
             'RANGE': 0
         },
@@ -1028,6 +1070,27 @@ function setVariables() {
             'SPECIAL': 'As an action, they can move to any world within one hex of their current location, whether or not the planetary government permits it.',
             'UPKEEP': 0,
             'RANGE': 1
+        },
+        'Anchorage Station': {
+            'STAT': 'Force',
+            'STAT_TIER': 7,
+            'ASSET': 'Anchorage Station',
+            'HP': 14,
+            'COST': 20,
+            'TL': 5,
+            'TYPE': 'Starship',
+            'ATTACK': 'Force',
+            'DEFENSE': 'Force',
+            'ATK_NUM_DICE': 2,
+            'ATK_NUM_SIDES': 4,
+            'ATK_MOD': 2,
+            'DEF_NUM_DICE': 2,
+            'DEF_NUM_SIDES': 6,
+            'DEF_MOD': 2,
+            'PERM': '',
+            'SPECIAL': 'This asset can support any number of land-based assets on board and can support the purchase of any force asset TL2 or lower. It also counts as a BoI for purposes of the \'Repair\' action. For 1 + ceil(land-based assets / 2) FC, it can move to any location within two hexes of their current location (no action). As an action, this asset can gain the status \'Armored\'.',
+            'UPKEEP': -1,
+            'RANGE': 2
         },
         'Capital Fleet': {
             'STAT': 'Force',
@@ -1982,7 +2045,9 @@ function setVariables() {
         'Mass Market Economists': 'Whenever an asset generates FacCreds or passive income on a planet with the “Billions of Inhabitants” tag, roll a d6. On a 5 or 6, generate one additional Credit.',
         'Unorthodox Pilots': 'When an asset moves itself with an ability it may roll a d6. On a 1-2 nothing happens. On a 3-6 the asset may move an additional hex.',
         'Pacifist Enforcers': 'The first Attack each Turn that takes place on a planet that contains this faction’s Base of Influence against any target must roll 2d10 and take the lowest die as the result.',
-        'Martial Primacy': 'This faction may upkeep 3 more Force assets than their stats would normally allow.'
+        'Martial Primacy': 'This faction may upkeep 3 more Force assets than their stats would normally allow.',
+        'Gene-Wrought Might': 'This faction\'s bio-engineers create a genetic edge in combat. They always win ties during attacks - this effect overrides the tie effect of the Fanatical tag.',
+        'Anchorage Assemblers': 'This faction can support one Anchorage Station asset without paying the upkeep cost nor having the tier or tech level requirement. Assets of T4 or lower can be build on this platform. Additionally the anchorage can move 3 hexes rather than 2 for an extra 1 FC.'
     };
     window.goals = {
         'Military Conquest': 'Destroy a number of Force assets of rival factions equal to your faction’s Force rating. Difficulty is 1/2 number of assets destroyed, rounded up.',
@@ -1998,6 +2063,7 @@ function setVariables() {
         'Wealth of Worlds': 'Spend FacCreds equal to four times your faction’s Wealth rating on bribes and influence. This money is effectively lost, but the goal is then considered accomplished. The faction’s Wealth rating must increase before this goal can be selected again. Difficulty 2.'
     };
     window.statuses = {
+        'Armored': 'The next damage this asset would take is reduced in half rounded down. This status is lost if the asset moves or is moved.',
         'Disabled': 'A Disabled Asset can not Attack, Activate, be Sold (as in the Sell action), be Refit, or Defend. A Disabled Asset remains targetable but loses any passive effects or benefits while disabled, but extra upkeep costs associated with the Asset must still be paid. A Disabled asset can be traded, but the status is unchanged. Any attacks against a Disabled Asset automatically hit.',
         'Protected': 'A Protected Asset can not be targeted by rival Factions, defend, attack, or be activated. Before a Protected Asset can be sold, refit, or traded it must regain at least 1 HP. If traded an Asset looses this state.',
         'Seizing': 'A Faction with the Seizing status is actively seizing the planetary government of a planet. An Asset with the Seizing status can not be moved.',
