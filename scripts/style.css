@@ -96,7 +96,7 @@ mark {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
+    width: 550px;
     padding: 10px;
     font-family: 'D-DIN', Helvetica, Arial, sans-serif;
     color: #fff;
@@ -226,7 +226,7 @@ mark {
 
 #faction-info-tag-name {
     position: relative;
-    width: 500px;
+    width: 550px;
     height: 50px;
     font-size: 18px;
     font-weight: bold;
@@ -235,13 +235,13 @@ mark {
 
 #faction-info-tag-desc {
     position: relative;
-    width: 500px;
+    width: 550px;
     font-size: 14px;
 }
 
 #faction-info-goal-name {
     position: relative;
-    width: 500px;
+    width: 550px;
     height: 50px;
     font-size: 18px;
     font-weight: bold;
@@ -250,7 +250,7 @@ mark {
 
 #faction-info-goal-desc {
     position: relative;
-    width: 500px;
+    width: 550px;
     font-size: 14px;
 }
 
