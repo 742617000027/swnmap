@@ -391,6 +391,11 @@ mark {
     background-size: 22px;
 }
 
+#tooltip-planet-into-mechtag-icon {
+    background-image: url("../img/icons/mechtag.png");
+    background-size: 22px;
+}
+
 .planet-stat {
     position: relative;
     display: inline-block;
