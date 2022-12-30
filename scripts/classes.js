@@ -114,6 +114,7 @@ class Planet {
         this.temp = planet['Temperature'];
         this.bio = planet['Biosphere'];
         this.tags = planet['Tags'].split(',');
+        this.mechTag = planet['Mech Tag'];
         this.orbitalObjects = {};
         this.x = this.x = tracker.hexes[this.hex].x;
         this.y = this.y = tracker.hexes[this.hex].y;
