@@ -720,8 +720,7 @@ function displayPlanetTooltip(id) {
     getElem('tooltip-planet-info-temp').innerHTML = planet.temp;
     getElem('tooltip-planet-info-bio').innerHTML = planet.bio;
     getElem('tooltip-planet-info-tags').innerHTML = planet.tags.join(', ');
-    getElem('tooltip-planet-into-mechtag').innerHTML = planet.mechTag
-
+    getElem('tooltip-planet-info-mechtag').innerHTML = planet.mechTag;
     renderTree(planet.orbitalObjects);
 }
 
